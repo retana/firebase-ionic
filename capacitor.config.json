@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "spoti-app-demo",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

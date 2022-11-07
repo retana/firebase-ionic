@@ -1,0 +1,7 @@
+{
+  "name": "spoti-app-demo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

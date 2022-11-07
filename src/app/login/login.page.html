@@ -1,0 +1,27 @@
+<ion-header>
+	<ion-toolbar color="primary">
+		<ion-title>Spoty-App</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+	<form (ngSubmit)="login()" [formGroup]="credentials">
+		<ion-item fill="solid" class="ion-margin-bottom">
+			<ion-input type="email" placeholder="Correo" formControlName="email"></ion-input>
+			<ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors"
+				>Correo invalido</ion-note
+			>
+		</ion-item>
+		<ion-item fill="solid" class="ion-margin-bottom">
+			<ion-input type="password" placeholder="Contraseña" formControlName="password"></ion-input>
+			<ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors"
+				>La contraseña necesita 6 caracteres</ion-note
+			>
+		</ion-item>
+
+		<ion-button type="submit" expand="block" [disabled]="!credentials.valid">Ingresar</ion-button>
+		<ion-button type="button" expand="block" color="secondary" (click)="register()"
+			>Crear cuenta</ion-button
+		>
+	</form>
+</ion-content>
