@@ -5,13 +5,13 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: '',
-    authDomain: '',
-    projectId: '',
-    storageBucket: '',
-    messagingSenderId: '',
-    appId: '',
-    measurementId: ''
+    apiKey: 'AIzaSyCM_57D-_UKb_p6YNkYAHmeTTGU-bSIrMw',
+    authDomain: 'spoty-app-b504a.firebaseapp.com',
+    projectId: 'spoty-app-b504a',
+    storageBucket: 'spoty-app-b504a.appspot.com',
+    messagingSenderId: '902907291547',
+    appId: '1:902907291547:web:94e6b7393a529c9412e33e',
+    measurementId: 'G-BE9X6KRSC0'
   }
 };
 
