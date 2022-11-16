@@ -11,16 +11,8 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content class="ion-padding">
-	<div class="preview">
-		<ion-avatar (click)="changeImage()">
-			<img *ngIf="profile?.imageUrl; else placheolder_avatar;" [src]="profile.imageUrl" />
-			<ng-template #placheolder_avatar>
-				<div class="fallback">
-					<p>Select avatar</p>
-				</div>
-			</ng-template>
-		</ion-avatar>
-	</div>
+	<ion-list *ngFor="let playlist of featuredPlaylists?.playlists.items" (click)="viewDetail(playlist)">
+		<ion-img src="{{playlist.images[0].url}}"></ion-img>
+	</ion-list>
 </ion-content>

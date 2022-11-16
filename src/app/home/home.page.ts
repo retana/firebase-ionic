@@ -4,6 +4,7 @@ import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 import { AvatarService } from '../services/avatar.service';
+import { SpotifyService } from '../services/spotify.service';
 
 @Component({
 	selector: 'app-home',
@@ -12,22 +13,26 @@ import { AvatarService } from '../services/avatar.service';
 })
 export class HomePage {
 	profile = null;
-
+	featuredPlaylists;
 	constructor(
 		private avatarService: AvatarService,
 		private authService: AuthService,
 		private router: Router,
 		private loadingController: LoadingController,
-		private alertController: AlertController
+		private alertController: AlertController,
+		private spotifyService: SpotifyService
 	) {
-		this.avatarService.getUserProfile().subscribe((data) => {
-			this.profile = data;
-		});
+		this.getPlayList();
 	}
 
 	async logout() {
 		await this.authService.logout();
 		this.router.navigateByUrl('/', { replaceUrl: true });
+	}
+
+	async getPlayList(){
+		this.featuredPlaylists =  await this.spotifyService.getPlayList();
+		console.log(this.featuredPlaylists);
 	}
 
 	async changeImage() {
@@ -54,5 +59,9 @@ export class HomePage {
 				await alert.present();
 			}
 		}
+	}
+	viewDetail(playlist){
+		console.log('element clicked');
+		this.router.navigate(['/detail'], {queryParams: {data: JSON.stringify(playlist)}} );
 	}
 }

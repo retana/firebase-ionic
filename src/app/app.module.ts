@@ -15,12 +15,14 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { provideStorage, getStorage } from '@angular/fire/storage';
-
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RequestInterceptorService } from './services/request-interceptor.service';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
@@ -28,7 +30,11 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
 		provideFirestore(() => getFirestore()),
 		provideStorage(() => getStorage())
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    {
+      provide: HTTP_INTERCEPTORS,useClass: RequestInterceptorService, multi: true}
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

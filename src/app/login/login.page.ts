@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
+import { SpotifyService } from '../services/spotify.service';
 
 @Component({
 	selector: 'app-login',
@@ -17,8 +18,10 @@ export class LoginPage implements OnInit {
 		private loadingController: LoadingController,
 		private alertController: AlertController,
 		private authService: AuthService,
-		private router: Router
-	) {}
+		private router: Router,
+		private spotifyService: SpotifyService
+	) {
+	}
 
 	// Easy access for form fields
 	get email() {
@@ -31,8 +34,8 @@ export class LoginPage implements OnInit {
 
 	ngOnInit() {
 		this.credentials = this.fb.group({
-			email: ['', [Validators.required, Validators.email]],
-			password: ['', [Validators.required, Validators.minLength(6)]]
+			email: ['inforetana@gmail.com', [Validators.required, Validators.email]],
+			password: ['123456', [Validators.required, Validators.minLength(6)]]
 		});
 	}
 
@@ -44,6 +47,7 @@ export class LoginPage implements OnInit {
 		await loading.dismiss();
 
 		if (user) {
+			this.spotifyService.getToken().subscribe();
 			this.router.navigateByUrl('/home', { replaceUrl: true });
 		} else {
 			this.showAlert('Registration failed', 'Please try again!');
@@ -58,6 +62,7 @@ export class LoginPage implements OnInit {
 		await loading.dismiss();
 
 		if (user) {
+			this.spotifyService.getToken().subscribe();
 			this.router.navigateByUrl('/home', { replaceUrl: true });
 		} else {
 			this.showAlert('El inicio de sesión falló', 'Intentalo nuevamente!');
