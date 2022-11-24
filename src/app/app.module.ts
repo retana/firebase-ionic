@@ -17,6 +17,11 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { provideStorage, getStorage } from '@angular/fire/storage';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RequestInterceptorService } from './services/request-interceptor.service';
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
+
+
+// Call the element loader after the platform has been bootstrapped
+defineCustomElements(window);
 
 @NgModule({
   declarations: [AppComponent],

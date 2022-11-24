@@ -10,7 +10,7 @@ cd ./spoty-ap
 
 # Crear componentes basicos
 ```
-ionic g page login --skip-tests=true
+ionic g page login
 ionic g service services/auth --skip-tests=true
 ionic g service services/avatar --skip-tests=true
 ```

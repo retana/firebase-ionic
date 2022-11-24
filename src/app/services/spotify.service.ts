@@ -15,8 +15,7 @@ export class SpotifyService {
   private accessToken?: string;
   private BASE_URL_API = 'https://api.spotify.com/v1/';
 
-  constructor(private http: HttpClient,
-    domSanitizer: DomSanitizer) {}
+  constructor(private http: HttpClient) {}
 
   getToken(){
   const params = new HttpParams({

@@ -10,9 +10,9 @@ import { Photo } from '@capacitor/camera';
 export class AvatarService {
 	constructor(private auth: Auth, private firestore: Firestore, private storage: Storage) {}
 
-	getUserProfile() {
-		const user = this.auth.currentUser;
-		const userDocRef = doc(this.firestore, `users/${user.uid}`);
+	getUserProfileImage() {
+		const userId = sessionStorage.getItem('userId');
+		const userDocRef = doc(this.firestore, `users/${userId}`);
 		return docData(userDocRef, { idField: 'id' });
 	}
 

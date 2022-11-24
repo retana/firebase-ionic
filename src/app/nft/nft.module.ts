@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { FolderPageRoutingModule } from './folder-routing.module';
+import { NftPageRoutingModule } from './nft-routing.module';
 
-import { FolderPage } from './folder.page';
+import { NftPage } from './nft.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FolderPageRoutingModule
+    NftPageRoutingModule
   ],
-  declarations: [FolderPage]
+  declarations: [NftPage]
 })
-export class FolderPageModule {}
+export class NftPageModule {}
