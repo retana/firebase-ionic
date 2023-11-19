@@ -1,6 +1,8 @@
 # Requisitos
 Se debe de contar con las siguientes versiones de programas instalados:
 
+Descargar node: https://nodejs.org/download/release/v18.16.1/
+
 ```
 nodejs  v18.16.1
 Angular  npm install -g @angular/cli@17.0.1
