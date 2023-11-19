@@ -5,7 +5,7 @@ Se debe de contar con las siguientes versiones de programas instalados:
 nodejs  v18.16.1
 Angular  npm install -g @angular/cli@17.0.1
 ionic  npm install -g @ionic/cli
-
+```
 # firebase-ionic
 firebase-ionic proyecto de ejemplo con funcionalidades de autenticado y archivos de firebase y uso de spotify
 
